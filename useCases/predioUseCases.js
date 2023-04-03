@@ -59,7 +59,7 @@ const getPredioPorCodigoDB = async (codigo) => {
         const results = await pool.query(`SELECT * FROM predios WHERE codigo = $1`,
         [codigo]);
         if (results.rowCount == 0){
-            throw "Nenhum registro encontrado com o código: " + codigo;
+            throw "Nenhum registro encontrado com o código : " + codigo;
         } else {
             const predio = results.rows[0];
             return new Predio(predio.codigo, predio.nome, predio.descricao, predio.sigla);            
